@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+class Incrementor {
+private:
+    int value;
+
+public:
+    Incrementor() : value(0) {}
+
+    // Overloading the prefix increment operator ++
+    Incrementor operator++() {
+        Incrementor temp;
+        temp.value = ++value;
+        return temp;
+    }
+
+    // Function to display the current value
+    void display() {
+        cout << "Current value: " << value << endl;
+    }
+};
+
+int main() {
+    Incrementor obj;
+
+    // Increment using overloaded ++
+    ++obj;
+    obj.display();
+
+    // Increment using overloaded ++ again
+    ++obj;
+    obj.display();
+
+    return 0;
+}
