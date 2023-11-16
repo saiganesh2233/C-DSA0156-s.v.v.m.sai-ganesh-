@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+
+class Shape {
+protected:
+    float height;
+    float width;
+
+public:
+    Shape(float h, float w) : height(h), width(w) {}
+
+    virtual float area() const = 0;
+    virtual float perimeter() const = 0;
+};
+
+class Rectangle : public Shape {
+public:
+    Rectangle(float l, float w) : Shape(l, w) {}
+
+    float area() const override {
+        return height * width;
+    }
+
+    float perimeter() const override {
+        return 2 * (height + width);
+    }
+};
+
+class Triangle : public Shape {
+private:
+    float side1;
+    float side2;
+    float side3;
+
+public:
+    Triangle(float h, float w, float s1, float s2, float s3) : Shape(h, w), side1(s1), side2(s2), side3(s3) {}
+
+    float area() const override {
+        return 0.5 * height * width;
+    }
+
+    float perimeter() const override {
+        return side1 + side2 + side3;
+    }
+};
+
+int main() {
+    float rectHeight, rectWidth;
+    cout << "Enter the height and width of the rectangle: ";
+    cin >> rectHeight >> rectWidth;
+
+    Rectangle rectangle(rectHeight, rectWidth);
+
+    float triHeight, triWidth, triSide1, triSide2, triSide3;
+    cout << "Enter the height, width, and lengths of the sides of the triangle: ";
+    cin >> triHeight >> triWidth >> triSide1 >> triSide2 >> triSide3;
+
+    Triangle triangle(triHeight, triWidth, triSide1, triSide2, triSide3);
+
+    cout << "Rectangle - Area: " << rectangle.area() << ", Perimeter: " << rectangle.perimeter() << endl;
+    cout << "Triangle - Area: " << triangle.area() << ", Perimeter: " << triangle.perimeter() << endl;
+
+    return 0;
+}
