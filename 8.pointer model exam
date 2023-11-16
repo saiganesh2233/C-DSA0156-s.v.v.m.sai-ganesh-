@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+// Sample function
+void displayMessage() {
+    cout << "Hello, this is a sample function!" << endl;
+}
+
+int main() {
+    // Declare a pointer to a function with void return type and no parameters
+    void (*functionPointer)();
+
+    // Assign the address of the function to the pointer
+    functionPointer = &displayMessage;
+
+    // Call the function using the pointer
+    (*functionPointer)();
+
+    return 0;
+}
