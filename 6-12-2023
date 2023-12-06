@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    int userInput;
+    
+    // Taking input from the user
+    std::cout << "Enter an integer: ";
+    std::cin >> userInput;
+
+    // Creating a pointer to an integer and assigning it the address of userInput
+    int* ptr = &userInput;
+
+    // Displaying the value using the pointer
+    std::cout << "Value stored at the memory location pointed by ptr: " << *ptr << std::endl;
+
+    return 0;
+}
